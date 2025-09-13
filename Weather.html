@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+ 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="main-container">
+
+    <!-- Input Section -->
+    <div class="input-container">
+      <input type="text" class="city-input" placeholder="Enter city name" />
+      <button class="search-btn">🔍</button>
+      <button class="geo-btn">📍</button>
+      <select class="unit-toggle">
+        <option value="metric" selected>°C</option>
+        <option value="imperial">°F</option>
+      </select>
+      <select class="lang-toggle">
+        <option value="en" selected>EN</option>
+        <option value="hi">HI</option>
+      </select>
+      <button class="dark-toggle-btn">🌓</button>
+    </div>
+
+    <!-- Search Prompt -->
+    <div class="section-message">
+      <img src="assets/message/search-city.png" alt="Search Prompt" />
+      <p>Search for a city or use GPS to get started</p>
+    </div>
+
+    <!-- Not Found -->
+    <div class="not-found section-message" style="display: none;">
+      <img src="assets/message/not-found.png" alt="Not Found" />
+      <p>City not found. Please try again.</p>
+    </div>
+
+    <!-- Weather Info -->
+    <div class="weather-info" style="display: none;">
+      <div class="location-date-container">
+        <h2 class="country-txt">City, Country</h2>
+        <p class="current-date-txt">Date</p>
+      </div>
+
+      <div class="weather-summary-container">
+        <img class="weather-summary-img" src="" alt="Weather Icon" />
+        <div class="weather-summary-info">
+          <h1 class="temp-txt">--°</h1>
+          <p class="condition-txt">--</p>
+        </div>
+      </div>
+
+      <div class="weather-conditions-container">
+        <div class="condition-item">
+          <span>💧</span>
+          <div class="condition-info">
+            <h5>Humidity</h5>
+            <p class="humidity-value-txt">--%</p>
+          </div>
+        </div>
+        <div class="condition-item">
+          <span>💨</span>
+          <div class="condition-info">
+            <h5>Wind</h5>
+            <p class="wind-value-txt">-- m/s</p>
+            <small class="wind-direction">--</small>
+          </div>
+        </div>
+        <div class="condition-item aqi-item">
+          <span>🌫</span>
+          <div class="condition-info">
+            <h5>Air Quality</h5>
+            <div class="aqi-emoji-wrapper">
+              <p class="aqi-value">--</p>
+              <span class="aqi-emoji">🙂</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sun-times">
+        <p>🌄 Sunrise: <span class="sunrise-time">--</span></p>
+        <p>🌇 Sunset: <span class="sunset-time">--</span></p>
+      </div>
+
+      <div class="rain-alert" style="display: none;"></div>
+
+      <div class="hourly-chart-wrapper" style="display: none;">
+        <h3 class="section-title">Next 24h Temperature</h3>
+        <canvas id="hourlyChart" height="100"></canvas>
+      </div>
+
+      <div class="forecast-wrapper" style="display: none;">
+        <h3 class="section-title">5-Day Forecast</h3>
+        <div class="forecast-items-container"></div>
+      </div>
+    </div>
+
+    <audio id="rainSound" src="assets/sounds/rain-alert.mp3" preload="auto"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

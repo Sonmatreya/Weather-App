@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: linear-gradient(to top, #74ebd5, #9face6);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark-theme {
+  background: linear-gradient(to top, #1a1a1a, #2a2a2a);
+  color: #eee;
+}
+
+/* Main Container */
+.main-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 25px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Section */
+.input-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.city-input {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  flex: 1;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.search-btn,
+.geo-btn,
+.dark-toggle-btn {
+  padding: 10px;
+  background: #ffffff33;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+}
+
+.unit-toggle,
+.lang-toggle {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-theme .input-container input,
+body.dark-theme .unit-toggle,
+body.dark-theme .lang-toggle {
+  background-color: #444;
+  color: #eee;
+}
+
+body.dark-theme .search-btn,
+body.dark-theme .geo-btn,
+body.dark-theme .dark-toggle-btn {
+  background-color: #666;
+  color: #eee;
+}
+
+/* Weather Info */
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Location + Summary */
+.location-date-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-summary-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.weather-summary-img {
+  width: 80px;
+  height: 80px;
+}
+
+.weather-summary-info h1 {
+  font-size: 40px;
+}
+
+/* Condition Blocks */
+.weather-conditions-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.condition-item {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 12px;
+  border-radius: 12px;
+  flex: 1 1 45%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 160px;
+}
+
+body.dark-theme .condition-item {
+  background-color: #444;
+}
+
+.condition-info h5 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Air Quality Style */
+.aqi-emoji-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.aqi-value {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.aqi-emoji {
+  font-size: 22px;
+}
+
+/* Sun Times */
+.sun-times {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+body.dark-theme .sun-times {
+  background-color: #444;
+}
+
+/* Chart + Forecast */
+.hourly-chart-wrapper,
+.forecast-wrapper {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+.section-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.forecast-items-container {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.forecast-item {
+  background-color: rgba(255, 255, 255, 0.25);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90px;
+}
+
+.forecast-item-img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Rain Alert */
+.rain-alert {
+  background-color: #ffebee;
+  color: #b71c1c;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  display: none;
+  box-shadow: 0 2px 6px rgba(255, 0, 0, 0.2);
+}
+
+/* Default Message */
+.section-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.section-message img {
+  width: 180px;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .weather-summary-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .condition-item {
+    flex: 1 1 100%;
+  }
+
+  .forecast-item {
+    width: 80px;
+  }
+
+  .sun-times {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
